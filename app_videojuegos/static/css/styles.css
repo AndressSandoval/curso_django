@@ -1,0 +1,333 @@
+/* --- Reset Básico --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Mantenemos el fondo degradado original */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #333;
+    line-height: 1.6;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Header y Navegación --- */
+.main-header {
+    background: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-bottom: 1px solid #eee;
+}
+
+.main-header h1 a {
+    color: #4a5568;
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.main-nav a {
+    margin-left: 1.5rem;
+    color: #4a5568;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.main-nav a:hover {
+    color: #667eea;
+}
+
+/* --- Contenido Principal --- */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-header h2 {
+    color: white;
+    font-size: 2.5rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.empty-message {
+    color: white;
+    font-size: 1.1rem;
+}
+
+/* --- Botones --- */
+.btn {
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+.btn-primary:hover {
+    background: #5a6fdc;
+}
+
+.btn-secondary {
+    background: #e2e8f0;
+    color: #4a5568;
+}
+.btn-secondary:hover {
+    background: #cbd5e0;
+}
+
+.btn-danger {
+    background: #e53e3e;
+    color: white;
+}
+.btn-danger:hover {
+    background: #c53030;
+}
+
+/* --- Grid de Tarjetas (Lista) --- */
+.artist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+
+.artist-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.artist-card:hover {
+    transform: translateY(-5px);
+}
+
+.artist-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.artist-img, .artist-placeholder {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.artist-placeholder {
+    background: #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #a0aec0;
+}
+
+.artist-card h3 {
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: #2d3748;
+}
+
+.artist-nationality {
+    color: #718096;
+    font-size: 0.9rem;
+    padding: 0 1rem 1rem;
+    display: block;
+}
+
+/* --- Página de Detalle --- */
+.artist-detail {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.artist-banner {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.detail-photo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #e2e8f0;
+}
+
+.detail-placeholder {
+    width: 180px;
+    height: 180px;
+    background: #e2e8f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    color: #a0aec0;
+}
+
+.artist-info h1 {
+    font-size: 2.5rem;
+    color: #2d3748;
+}
+
+.artist-info h3 {
+    font-size: 1.5rem;
+    color: #718096;
+    font-weight: 400;
+}
+
+.detail-actions {
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.songs-section h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 0.5rem;
+}
+
+.song-list {
+    list-style: none;
+    counter-reset: song-counter;
+}
+
+.song-list li {
+    counter-increment: song-counter;
+    padding: 0.8rem 1rem;
+    background: #f7fafc;
+    border-left: 4px solid #667eea;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.employee-photo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e2e8f0;
+}
+
+.song-list li::before {
+    content: counter(song-counter) ". ";
+    color: #667eea;
+    font-weight: 700;
+    margin-right: 0.5rem;
+}
+
+/* --- Formularios --- */
+.form-styled {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.form-styled h2 {
+    font-size: 1.8rem;
+    color: #2d3748;
+    margin-bottom: 1rem;
+}
+
+.form-styled p {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-styled label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #4a5568;
+}
+
+.form-styled input[type="text"],
+.form-styled input[type="file"],
+.form-styled input[type="date"],
+.form-styled input[type="number"] {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.form-styled .actions {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.formset-row {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: #fcfdff;
+}
+
+/* --- Media Queries (Responsivo) --- */
+@media (max-width: 768px) {
+    .main-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .artist-banner {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .detail-actions {
+        justify-content: center;
+    }
+}

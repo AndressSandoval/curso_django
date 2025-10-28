@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block titulo %}Sucursales | Tienda de Videojuegos{% endblock %}
+
+{% block contenido %}
+<div class="page-header">
+    <h2>Nuestras Sucursales</h2>
+</div>
+
+<ul class="artist-grid">
+    {% for sucursal in sucursales %}
+    <li class="artist-card">
+        <a href="{% url 'app_videojuegos:detalle_sucursal' sucursal.id %}">
+            
+            {% if sucursal.foto_sucursal %}
+                <img src="{{ sucursal.foto_sucursal.url }}" alt="Foto de {{ sucursal.direccion }}" class="artist-img">
+            {% else %}
+                <div class="artist-placeholder">🏢</div>
+            {% endif %}
+            
+            <h3>{{ sucursal.direccion }}</h3>
+            <span class="artist-nationality">{{ sucursal.ciudad }}, {{ sucursal.pais }}</span>
+        </a>
+    </li>
+    {% empty %}
+    <p class="empty-message">No hay sucursales registradas todavía.</p>
+    {% endfor %}
+</ul>
+{% endblock %}

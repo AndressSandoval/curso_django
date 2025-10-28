@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block titulo %}Tienda de Videojuegos{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <div class="wrapper">
+        <header class="main-header">
+            <h1><a href="{% url 'app_videojuegos:listar_sucursales' %}">🎮 Tienda de Videojuegos</a></h1>
+            <nav class="main-nav">
+                <a href="{% url 'app_videojuegos:crear_sucursal' %}" class="btn btn-primary">Nueva Sucursal</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            {% block contenido %}
+            {% endblock %}
+        </main>
+    </div>
+</body>
+</html>

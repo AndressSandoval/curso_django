@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block titulo %}{{ sucursal.direccion }} | Tienda de Videojuegos{% endblock %}
+
+{% block contenido %}
+<article class="artist-detail">
+    <div class="artist-banner">
+        
+        {% if sucursal.foto_sucursal %}
+            <img src="{{ sucursal.foto_sucursal.url }}" alt="Foto de {{ sucursal.direccion }}" class="detail-photo">
+        {% else %}
+            <div class="detail-placeholder">🏢</div>
+        {% endif %}
+        
+        <div class="artist-info">
+            <h1>{{ sucursal.direccion }}</h1>
+            <h3>{{ sucursal.ciudad }}, {{ sucursal.pais }}</h3>
+            <p>{{ sucursal.calle }}, {{ sucursal.codigo_postal }}</p>
+        </div>
+    </div>
+
+    <div class="detail-actions">
+        <a href="{% url 'app_videojuegos:editar_sucursal' sucursal.id %}" class="btn btn-secondary">✏️ Editar</a>
+        <a href="{% url 'app_videojuegos:borrar_sucursal' sucursal.id %}" class="btn btn-danger">🗑️ Borrar</a>
+    </div>
+
+    <section class="songs-section">
+        <h2>Empleados</h2>
+        {% if sucursal.empleados.all %}
+        <ul class="song-list">
+            {% for empleado in sucursal.empleados.all %}
+            <li>
+                {% if empleado.foto_empleado %}
+                    <img src="{{ empleado.foto_empleado.url }}" alt="Foto de {{ empleado.apellido }}" class="employee-photo">
+                {% endif %}
+                {{ empleado.apellido }} ({{ empleado.cargo }}) - Salario: ${{ empleado.salario }} - Contratado: {{ empleado.fecha_contratacion }}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p class="empty-message">Esta sucursal no tiene empleados registrados.</p>
+        {% endif %}
+    </section>
+</article>
+{% endblock %}
